@@ -35,7 +35,7 @@ class Solver(BaseSolver):
         self.tv = TVLoss(eps=self.eps_tv)
 
         # Dimension-independent Lipschitz bound: y.max() / back
-        # (analogous to norm_H / back for PGD, with normalised kernel norm_H ≈ 1)
+        # (analogous to norm_H / back for PGD, with normalised norm_H ≈ 1)
         lip = y.max() / back + 8 * self.lam / self.eps_tv
         self.tau = 2.0 * self.step_factor / lip
 
