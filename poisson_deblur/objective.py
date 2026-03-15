@@ -39,11 +39,6 @@ class Objective(BaseObjective):
         x_true_norm = x_true / (x_true.max() + 1e-8)
         x_hat_norm = x_hat / (x_hat.max() + 1e-8)
 
-        try:
-            dinv.metric.SSIM()
-        except Exception:
-            pass
-
         psnr = dinv.metric.PSNR()(x_hat_norm, x_true_norm).item()
         ssim = dinv.metric.SSIM()(x_hat_norm, x_true_norm).item()
 
